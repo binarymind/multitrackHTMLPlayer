@@ -97,7 +97,7 @@ body.high-graphics .bkg-link-hover, body.high-graphics .bkg-link:hover, body.hig
 .control-list > li.active a, .audio-container ul.tracks > li ul > li.active a, .audio-container .main-control ul > li.active a { background-color: #444 !important; }
 .control-list > li.mute a, .audio-container ul.tracks > li ul > li.mute a, .audio-container .main-control ul > li.mute a { background-position: -100px 0; }
 .control-list > li.mute.active a, .audio-container ul.tracks > li ul > li.mute.active a, .audio-container .main-control ul > li.mute.active a { background-position: -100px -30px; }
-.control-list > li.solo a, .audio-container ul.tracks > li ul > li.solo a, .audio-container .main-control ul > li.solo a { background-position: -130px 0; background-color: #E2E2E2 !important; border-color: #E2E2E2 !important; }
+.control-list > li.solo a, .audio-container ul.tracks > li ul > li.solo a, .audio-container .main-control ul > li.solo a { background-position: -130px 0; }
 .control-list > li.solo.active a, .audio-container ul.tracks > li ul > li.solo.active a, .audio-container .main-control ul > li.solo.active a { background-position: -130px -30px; }
 .control-list > li.play a, .audio-container ul.tracks > li ul > li.play a, .audio-container .main-control ul > li.play a { background-position: 2px 2px; }
 .control-list > li.play.active a, .audio-container ul.tracks > li ul > li.play.active a, .audio-container .main-control ul > li.play.active a { background-position: 2px -28px; }
@@ -134,6 +134,7 @@ body.high-graphics .audio-container ul.tracks > li { -webkit-box-shadow: inset 0
 .audio-container ul.tracks > li.playing { background-color: #2F2F2F; border-color: #363636 #111 #000 #111; }
 body.high-graphics .audio-container ul.tracks > li.playing { -webkit-box-shadow: inset 0 0 15px #222222; -moz-box-shadow: inset 0 0 15px #222222; box-shadow: inset 0 0 15px #222222; }
 .audio-container ul.tracks > li.locked li.mute a, .audio-container ul.tracks > li.solo li.mute a { opacity: 0.2; }
+.audio-container ul.tracks > li.locked li.solo a, .audio-container ul.tracks > li.solo li.solo a { background-color: #E2E2E2 !important; border-color: #E2E2E2 !important; }
 .audio-container ul.tracks > li .color { display: block; width: 20px; height: 100%; position: absolute; top: 0; right: 0; }
 .audio-container audio { height: 0; overflow: hidden; line-height: 0; width: 0; display: none !important; }
 .audio-container .track-name { padding-left: 5px; color: #4b4b4b; padding-top: 3px; }
