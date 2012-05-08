@@ -13,7 +13,7 @@ in the index.html, replace all the blocs by the ones you want
 ```   
 
 * each bloc must have the class `audio-container` and a `name` attribute like shown above.
-* audio track must have a `name` attribute and an `url` attribute (not src !)
+* audio track must have a `name` attribute and an `url` attribute (not src !) 
 * all the audio tracks must be in the same domain than your webpage.
 
 And that's all.. This seems more stable Under Firefox. Moreover if you open the page with a modern firefox you will have displayed the FFT of all the tracks beeing played.
