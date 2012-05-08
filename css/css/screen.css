@@ -97,7 +97,7 @@ body.high-graphics .bkg-link-hover, body.high-graphics .bkg-link:hover, body.hig
 .control-list > li.active a, .audio-container ul.tracks > li ul > li.active a, .audio-container .main-control ul > li.active a { background-color: #444 !important; }
 .control-list > li.mute a, .audio-container ul.tracks > li ul > li.mute a, .audio-container .main-control ul > li.mute a { background-position: -100px 0; }
 .control-list > li.mute.active a, .audio-container ul.tracks > li ul > li.mute.active a, .audio-container .main-control ul > li.mute.active a { background-position: -100px -30px; }
-.control-list > li.solo a, .audio-container ul.tracks > li ul > li.solo a, .audio-container .main-control ul > li.solo a { background-position: -130px 0; }
+.control-list > li.solo a, .audio-container ul.tracks > li ul > li.solo a, .audio-container .main-control ul > li.solo a { background-position: -130px 0; background-color: #E2E2E2 !important; border-color: #E2E2E2 !important; }
 .control-list > li.solo.active a, .audio-container ul.tracks > li ul > li.solo.active a, .audio-container .main-control ul > li.solo.active a { background-position: -130px -30px; }
 .control-list > li.play a, .audio-container ul.tracks > li ul > li.play a, .audio-container .main-control ul > li.play a { background-position: 2px 2px; }
 .control-list > li.play.active a, .audio-container ul.tracks > li ul > li.play.active a, .audio-container .main-control ul > li.play.active a { background-position: 2px -28px; }
