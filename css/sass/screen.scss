@@ -1,0 +1,313 @@
+@import "_default.scss";
+// -------------------------------------------------------------------
+// ALL SCREENS 
+// -------------------------------------------------------------------
+	//TRANSITIONS
+	body.high-graphics .css-transition-all {@include transition(all 0.2s ease-in-out);}
+
+	//CSS SPRITES
+	.bkg-gradient {background: url("../i/bkgGradient.png") repeat-x scroll 0 0 transparent;}
+	.bkg-picto {background: url("../i/bkgLowRes.png") no-repeat scroll 0 0 transparent;}
+	
+	// -------------------------------------------------------------------
+	// BACKGROUND-LINKS
+	// -------------------------------------------------------------------
+	.bkg-link-hover {border-color:#CCC;background-color:#DADADA; color:#444;
+      body.high-graphics & {@include box-shadow(0 0 15px #FFF);}}
+	
+	.bkg-link {
+		//aesthetic
+		@include link-colors(#4b4b4b, #f4dbac, #f4dbac,#4b4b4b, #f4dbac );background-color:white;border:1px solid #CCC; @extend .css-transition-all;
+		&:hover {@extend .bkg-link-hover;}
+	}
+	
+	.bkg-list li {
+		//position
+		margin:3px 0;
+		//aesthetic
+		@include no-bullet;}
+		
+	.bkg-list li a {
+		//size
+		@extend .display-block; @extend .clearfix;
+		//aesthetic
+		@extend .bkg-link; @extend .t-left;}	
+	
+	.button {
+		@extend .bkg-link;
+		//size
+		padding:4px 12px;
+		//aesthetic
+		@extend .t-caps;@include t-scale(0.9);
+	}
+	
+	  // -------------------------------------------------------------------
+		// CONTROL LIST
+		// -------------------------------------------------------------------
+		.control-list {
+			//position
+			@extend .inline-block-list; display:inline !important;}
+			
+			.control-list > li {
+				//position
+				@extend .inline-block-list-item;
+				> a {
+  				//size
+  				overflow:hidden;@extend .display-block;width:30px;height:30px;
+  				//position
+  				@extend .inline-block-list-item;
+  				//aesthetic
+  				@extend .css-transition-all;@extend .bkg-link; @extend .bkg-picto;@extend .t-hide;
+  			 }
+  		  &.active a {background-color:#444 !important;}
+  		  
+        &.mute a {background-position: -100px 0 ; }
+        &.mute.active a {background-position:-100px -30px ;}
+        
+        &.solo a {
+          background-position:30px 30px;
+          span {
+            //size
+            overflow:hidden;@extend .display-block;width:30px;height:30px;
+            //aesthetic
+            @extend .bkg-picto;@extend .t-hide;background-position:-130px 0 ;
+          }
+        }
+        &.solo.active a  span {background-position:-130px -30px ;}
+        
+        &.play a {background-position:2px 2px}
+        &.play.active a {background-position:2px -28px}
+         
+        &.pause a {background-position:-28px 2px}
+        &.pause.active a {background-position:-28px -28px}
+         
+        &.stop a {background-position:-58px 2px}
+        &.stop.active a {background-position:-58px -28px}  		
+  		}
+		    
+		// -------------------------------------------------------------------
+    // PLAYER
+    // -------------------------------------------------------------------
+    h1 {@include t-scale(1.7, 1.7);padding-left:5px;}
+    h2 {@include t-scale(1.3, 1.3);padding-left:5px;}
+    
+    .audio-container {
+        //size
+        padding:5px;
+        //position
+        position:relative;
+        //aesthtetic
+        background:#EEE;font-family:Helvetica, Arial, Verdana;
+        .tracks, .main-control {@extend .css-transition-all;}
+        .loader {
+          //size
+          display:none;width:37px;height:37px;
+          //position
+          position:absolute;right:50%;margin-right:-18px;top:50%;margin-top:-18px;
+          //aesthetic
+          @extend .bkg-picto;background-position:-160px -15px; @extend .t-hide;
+        }
+        .status {
+          //size
+          display:none;width:16px;height:29px;
+          //position
+          float:left;
+          //aesthetic
+          @extend .bkg-picto;background-position:-208px -14px; @extend .t-hide; 
+        }
+        &:not(.ready):not(.error) {
+          .tracks, .main-control, .canvas-toggle {opacity:0.2;}
+          .loader {display:block}
+        }
+        &.error {
+          .tracks {opacity:1}
+          .main-control, .tracks .control , .canvas-toggle {opacity:0.2;}
+          .track.error {
+            .track-name {color:#9b0000;}
+            .status {display:block;} 
+          }
+        }
+        canvas {
+          //size
+          display:block;height:0;width:100%;overflow:hidden;
+          //position
+          @extend .css-transition-all;
+          //aesthetic
+          background:#444;@include box-shadow(inset 0 0 10px black);border-top: 1px solid #FCFCFC;
+        }
+        .canvas-toggle {
+          //size
+          display:block;height:10px;
+          //position
+
+          //aesthetic
+          border-top: 1px solid #555;background:#444;text-align:center;color:#EEE;font-size:9px;line-height:10px;text-decoration:none;font-weight:bold;
+        }
+        ul.tracks {
+          width:100%;
+  		    > li {
+            //size
+            padding:3px;@include clearfix;
+            //position
+            clear:both; @extend .display-block;@include _clearfix(both);position:relative;
+            //aesthetic
+            @include link-colors(#4b4b4b, #f4dbac, #f4dbac,#4b4b4b, #f4dbac );line-height:30px;border-width:1px;border-style:solid; border-color:#CCC;background-color:#E2E2E2;
+            body.high-graphics & { @include box-shadow(inset 0 0 15px #CCC);}
+            &:last-child {border-width:1px;}
+            &.playing {background-color:#2F2F2F;border-color:#363636 #111 #000 #111;
+              body.high-graphics & {@include box-shadow(inset 0 0 15px #222);}
+              .track-name {@extend .t-highlight;}}
+        
+            ul {
+      			 @extend .float-left; @extend .control-list;}
+      	   &.locked  li.mute a, &.solo  li.mute a {
+      	    opacity:0.2;
+      	   }
+           &.locked li.solo a, &.solo li.solo a {
+            background-color:#E2E2E2 !important;border-color:#E2E2E2 !important;
+           }
+           .color {
+            //size
+            display:block;width:20px;height:100%;
+            //position
+            position:absolute;top:0;right:0;
+           }
+      	  }
+      	}		
+
+    		audio {height:0;overflow:hidden;line-height:0;width:0;display:none !important}		
+  			.track-name {
+  				//position
+  				@extend .float-left;padding-left:5px;
+  				//aesthetic
+  				color: #4b4b4b;@extend .display-inline-block;padding-top:3px;}
+  	
+      	.main-control {
+      	  //size
+      	  padding:0 0 8px 110px;
+      	  //position
+      	   @extend .relative;
+      	   
+      	   ul {width:110px;@extend .absolute;left:0;top:0; @extend .control-list;}  
+      	   .timebar-wrapper {
+      	     //size
+      	     height:30px;
+      	     //position
+      	     position:relative;
+      	     //aesthtetic
+      	     background:#DDD;border:1px solid #CCC;
+      	     .timebar {
+      	       //size
+      	       height:30px;max-width:100%;min-width:0;width:1px;
+      	       //position
+      	       @extend .absolute;left:0;top:0;
+      	       //aesthtetic
+      	       background:#444;border-right:1px solid #EEE;
+      	     } 
+      	   }
+      	   
+      	}
+      
+      &.canvas-opened {
+        canvas {height:300px;}
+      }  
+  	}	
+  		
+
+//LOADING ANIMATION
+@-webkit-keyframes loading {
+  0% { -webkit-transform:rotate(0deg) translateZ(0); }
+  100% { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+@-moz-keyframes loading {  
+  from { -moz-transform:rotate(0deg) translateZ(0); }
+  to { -moz-transform:rotate(360deg) translateZ(0); }
+}  
+
+.high-graphics  .audio-container:not(.ready) .loader {
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in;
+  
+  -webkit-animation-name: loading;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  -webkit-animation-timing-function: ease-in;
+
+  -moz-animation-name: loading;
+  -moz-animation-duration: 2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: normal;
+  -moz-animation-timing-function: ease-in;
+}	
+//ERROR ANIMATION
+//OBSOLETE ANIMATION
+@-webkit-keyframes error {
+  0% { -webkit-transform:rotate(0deg) translateZ(0); opacity:1;}
+  20% { -webkit-transform:rotate(10deg) translateZ(0); opacity:0.8; }
+  80% { -webkit-transform:rotate(-10deg) translateZ(0); opacity:0.9;}
+  100% { -webkit-transform:rotate(0deg) translateZ(0); opacity:1}
+}
+@-moz-keyframes error {  
+  0% { -moz-transform:rotate(0deg) translateZ(0); opacity:1;}
+  20% { -moz-transform:rotate(10deg) translateZ(0); opacity:0.8; }
+  80% { -moz-transform:rotate(-10deg) translateZ(0); opacity:0.9;}
+  100% { -moz-transform:rotate(0deg) translateZ(0); opacity:1}
+}  
+.high-graphics .track.error .status {
+  animation-name: error;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in;
+  
+  -webkit-animation-name: error;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  -webkit-animation-timing-function: ease-in;
+
+  -moz-animation-name: error;
+  -moz-animation-duration: 2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: normal;
+  -moz-animation-timing-function: ease-in;
+} 
+// -------------------------------------------------------------------
+// DEVICE SIZE
+// NOTE : no extend in media queries
+// -------------------------------------------------------------------
+@media screen and (min-height: 900px) {
+  
+}
+
+//for smaller screen 
+@media screen and (max-width: 1180px) {
+}
+@media screen and (max-width: 900px) {
+	
+}
+
+@media screen and (max-width: 490px) {
+	
+} 
+@media screen and (max-width: 440px) {
+	
+}
+
+
+
+
+// -------------------------------------------------------------------
+// DEVICE PIXEL RATIO
+// -------------------------------------------------------------------
+@media screen and (-webkit-device-pixel-ratio: 2) {
+ 	.bkg-picto {background-image:url(../i/bkgHighRes.png); background-size:auto 60px ;}
+}
+
+@media screen and (-webkit-device-pixel-ratio: 1.5) {
+	.bkg-picto {background-image:url(../i/bkgLowRes.png); background-size:auto 60px ;}
+}

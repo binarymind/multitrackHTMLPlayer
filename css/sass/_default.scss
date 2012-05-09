@@ -1,0 +1,83 @@
+@import "compass";
+@import "blueprint";
+@import "blueprint/reset";
+@import "blueprint/liquid";
+@import "compass/css3/border-radius";
+@import "compass/css3/transform";
+@import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+@import "compass/typography/lists/bullets";
+
+//***************************************/
+//*********** Clear & Clearfix **********/
+//***************************************/
+@mixin clear($side:both) {
+	clear:$side;
+}
+@mixin _clearfix($side:both) {
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: $side;
+    visibility: hidden;
+  }
+  * html & { height: 1px }
+}
+
+//*******************************/
+//************ sizes ************/
+//*******************************/
+	//***** widths ******/
+	@mixin width($innerWidth:100%, $padding-left:1%,$padding-right:1%) {
+		width: ($innerWidth - $padding-left -$padding-right)*1%; padding-right:$padding-right;padding-left:$padding-left
+	}
+	//***** heights ******/
+	@mixin height($innerHeight:20px, $padding-top:10px, $padding-bottom:10px) {
+		height: $innerHeight; padding-top:$padding-top;padding-bottom:$padding-bottom
+	}
+	 
+/*******************************/
+/********** Position ***********/
+/*******************************/
+	.inline {display:inline;}
+	.center {margin:0 auto;} 
+	.float-left {@include float-left;}
+	.float-right {@include float-right;}
+	.hidden {display:none;}
+	.display-block {display:block;}
+	
+	.fixed {position:fixed;}
+	.relative {position:relative;}
+	.absolute {position:absolute;}
+		
+	.invisible {visibility:hidden;}
+	.no-overflow {overflow:hidden;}
+	.scroll {overflow:auto; scroll:auto;}
+	
+	.inline-block-list {@include inline-block-list;}
+	.inline-block-list-item {@include inline-block-list-item;}
+	
+/*******************************/
+/************ Texts ************/
+/*******************************/
+	/* other text styles */
+	.t-left{text-align:left;} 
+	.t-right{text-align:right;}
+	.t-center{text-align:center;vertical-align:middle;}
+	.t-justify {text-align:justify;}
+	
+	.t-hide {text-indent:-3333px;overflow:hidden;@extend t-left;}
+	.t-caps {text-transform:uppercase}
+	.t-lower {text-transform:lowercase}
+	
+	//***** heights ******/
+	@mixin t-scale($ratio:1, $line-height-ratio:1) {
+		font-size:$ratio*1em;line-height:$line-height-ratio*1em;
+	}
+	.t-no-select {-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-o-user-select: none;user-select: none;}
+
+/*******************************/
+/********* Bloc styles *********/
+/*******************************/
+	.no-background {background:none !important;}

@@ -26,7 +26,7 @@ a img { border: none; }
 
 .hidden { display: none; }
 
-.display-block, .bkg-list li a, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .audio-container ul.tracks > li { display: block; }
+.display-block, .bkg-list li a, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .control-list > li.solo a span, .audio-container ul.tracks > li ul > li.solo a span, .audio-container .main-control ul > li.solo a span, .audio-container ul.tracks > li { display: block; }
 
 .fixed { position: fixed; }
 
@@ -59,7 +59,7 @@ a img { border: none; }
 
 .t-justify { text-align: justify; }
 
-.t-hide, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .audio-container .loader, .audio-container .status { text-indent: -3333px; overflow: hidden; }
+.t-hide, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .control-list > li.solo a span, .audio-container ul.tracks > li ul > li.solo a span, .audio-container .main-control ul > li.solo a span, .audio-container .loader, .audio-container .status { text-indent: -3333px; overflow: hidden; }
 
 .t-caps, .button { text-transform: uppercase; }
 
@@ -76,7 +76,7 @@ body.high-graphics .css-transition-all, body.high-graphics .bkg-link, body.high-
 
 .bkg-gradient { background: url("../i/bkgGradient.png") repeat-x scroll 0 0 transparent; }
 
-.bkg-picto, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .audio-container .loader, .audio-container .status { background: url("../i/bkgLowRes.png") no-repeat scroll 0 0 transparent; }
+.bkg-picto, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .control-list > li.solo a span, .audio-container ul.tracks > li ul > li.solo a span, .audio-container .main-control ul > li.solo a span, .audio-container .loader, .audio-container .status { background: url("../i/bkgLowRes.png") no-repeat scroll 0 0 transparent; }
 
 .bkg-link-hover, .bkg-link:hover, .bkg-list li a:hover, .button:hover, .control-list > li > a:hover, .audio-container ul.tracks > li ul > li > a:hover, .audio-container .main-control ul > li > a:hover { border-color: #CCC; background-color: #DADADA; color: #444; }
 body.high-graphics .bkg-link-hover, body.high-graphics .bkg-link:hover, body.high-graphics .bkg-list li a:hover, .bkg-list li body.high-graphics a:hover, body.high-graphics .button:hover, body.high-graphics .control-list > li > a:hover, body.high-graphics .audio-container ul.tracks > li ul > li > a:hover, .audio-container ul.tracks > li body.high-graphics ul > li > a:hover, body.high-graphics .audio-container .main-control ul > li > a:hover, .audio-container .main-control body.high-graphics ul > li > a:hover { -webkit-box-shadow: 0 0 15px white; -moz-box-shadow: 0 0 15px white; box-shadow: 0 0 15px white; }
@@ -97,8 +97,9 @@ body.high-graphics .bkg-link-hover, body.high-graphics .bkg-link:hover, body.hig
 .control-list > li.active a, .audio-container ul.tracks > li ul > li.active a, .audio-container .main-control ul > li.active a { background-color: #444 !important; }
 .control-list > li.mute a, .audio-container ul.tracks > li ul > li.mute a, .audio-container .main-control ul > li.mute a { background-position: -100px 0; }
 .control-list > li.mute.active a, .audio-container ul.tracks > li ul > li.mute.active a, .audio-container .main-control ul > li.mute.active a { background-position: -100px -30px; }
-.control-list > li.solo a, .audio-container ul.tracks > li ul > li.solo a, .audio-container .main-control ul > li.solo a { background-position: -130px 0; }
-.control-list > li.solo.active a, .audio-container ul.tracks > li ul > li.solo.active a, .audio-container .main-control ul > li.solo.active a { background-position: -130px -30px; }
+.control-list > li.solo a, .audio-container ul.tracks > li ul > li.solo a, .audio-container .main-control ul > li.solo a { background-position: 30px 30px; }
+.control-list > li.solo a span, .audio-container ul.tracks > li ul > li.solo a span, .audio-container .main-control ul > li.solo a span { overflow: hidden; width: 30px; height: 30px; background-position: -130px 0; }
+.control-list > li.solo.active a span, .audio-container ul.tracks > li ul > li.solo.active a span, .audio-container .main-control ul > li.solo.active a span { background-position: -130px -30px; }
 .control-list > li.play a, .audio-container ul.tracks > li ul > li.play a, .audio-container .main-control ul > li.play a { background-position: 2px 2px; }
 .control-list > li.play.active a, .audio-container ul.tracks > li ul > li.play.active a, .audio-container .main-control ul > li.play.active a { background-position: 2px -28px; }
 .control-list > li.pause a, .audio-container ul.tracks > li ul > li.pause a, .audio-container .main-control ul > li.pause a { background-position: -28px 2px; }
@@ -164,5 +165,5 @@ body.high-graphics .audio-container ul.tracks > li.playing { -webkit-box-shadow:
 
 .high-graphics .track.error .status { animation-name: error; animation-duration: 1s; animation-iteration-count: infinite; animation-direction: normal; animation-timing-function: ease-in; -webkit-animation-name: error; -webkit-animation-duration: 2s; -webkit-animation-iteration-count: infinite; -webkit-animation-direction: normal; -webkit-animation-timing-function: ease-in; -moz-animation-name: error; -moz-animation-duration: 2s; -moz-animation-iteration-count: infinite; -moz-animation-direction: normal; -moz-animation-timing-function: ease-in; }
 
-@media screen and (-webkit-device-pixel-ratio: 2) { .bkg-picto, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .audio-container .loader, .audio-container .status { background-image: url(../i/bkgHighRes.png); background-size: auto 60px; } }
-@media screen and (-webkit-device-pixel-ratio: 1.5) { .bkg-picto, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .audio-container .loader, .audio-container .status { background-image: url(../i/bkgLowRes.png); background-size: auto 60px; } }
+@media screen and (-webkit-device-pixel-ratio: 2) { .bkg-picto, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .control-list > li.solo a span, .audio-container ul.tracks > li ul > li.solo a span, .audio-container .main-control ul > li.solo a span, .audio-container .loader, .audio-container .status { background-image: url(../i/bkgHighRes.png); background-size: auto 60px; } }
+@media screen and (-webkit-device-pixel-ratio: 1.5) { .bkg-picto, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a, .control-list > li.solo a span, .audio-container ul.tracks > li ul > li.solo a span, .audio-container .main-control ul > li.solo a span, .audio-container .loader, .audio-container .status { background-image: url(../i/bkgLowRes.png); background-size: auto 60px; } }
