@@ -176,7 +176,7 @@ generateHtml = function(container) {
 	var containerTracks = container.find('.tracks');
 	audioTags.each(function(i){
 		var randomColor = get_random_color();
-		containerTracks.append('<li class="track"><ul class="control"><li class="mute"><a href="javascript://">mute</a></li><li class="solo"><a href="javascript://">Solo</a></li></ul><span class="status"></span><audio index="'+i+'" container="'+containerID+'" color="'+randomColor+'" preload="auto" src="'+$(this).attr("url")+'"></audio><span class="track-name">'+$(this).attr("name")+'</span>'+($.browser.mozilla ? '<span class="color" style="background-color:'+randomColor+'"></span>':"")+'</li>');
+		containerTracks.append('<li class="track"><ul class="control"><li class="mute"><a href="javascript://">mute</a></li><li class="solo"><a href="javascript://"><span></span></a></li></ul><span class="status"></span><audio index="'+i+'" container="'+containerID+'" color="'+randomColor+'" preload="auto" src="'+$(this).attr("url")+'"></audio><span class="track-name">'+$(this).attr("name")+'</span>'+($.browser.mozilla ? '<span class="color" style="background-color:'+randomColor+'"></span>':"")+'</li>');
 	});	
 	container.append('<span class="loader"></span>');
 	audioTags.remove();
