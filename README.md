@@ -18,6 +18,11 @@ in the index.html, replace all the blocs by the ones you want
 
 And that's all.. This seems more stable Under Firefox. Moreover if you open the page with a modern firefox you will have displayed the FFT of all the tracks beeing played.
 
+## Display the FFT in firefox on local files (not website)
+* in firefox go to the url <a target="_blank" href="about:config">about:config</a>
+* search for the value : security.fileuri.strict_origin_policy
+* set it to false and reboot firefox
+
 ## credits
 this player has been designed by Bastien Liutkus 
 www.binarymind.org and released under the terms of
