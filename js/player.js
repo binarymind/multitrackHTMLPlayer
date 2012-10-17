@@ -222,10 +222,10 @@ initPlayer = function(containerID) {
 		that[0].addEventListener("canplaythrough", function() {
 			players[containerID].loadedAudio++;
 			if(players[containerID].loadedAudio==players[containerID].tracks.length) container.trigger("ready");
-		});
+		}, false);
 		that[0].addEventListener("error", function() {
 			container.trigger("error", i+1);
-		});
+		}, false);
 		that.attr("index", i);
 		/*that.bind('MozAudioAvailable', function(event, that) {
 			initFFT(event, that);
