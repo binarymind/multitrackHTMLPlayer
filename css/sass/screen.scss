@@ -83,6 +83,9 @@
          
         &.stop a {background-position:-58px 2px}
         &.stop.active a {background-position:-58px -28px}  		
+
+        &.repeat a {background-position:-240px 2px}
+        &.repeat.active a {background-position:-240px -28px}     
   		}
 		    
 		// -------------------------------------------------------------------
@@ -184,11 +187,11 @@
   	
       	.main-control {
       	  //size
-      	  padding:0 0 8px 110px;
+      	  padding:0 0 8px 145px;
       	  //position
       	   @extend .relative;
       	   
-      	   ul {width:110px;@extend .absolute;left:0;top:0; @extend .control-list;}  
+      	   ul {width:145px;@extend .absolute;left:0;top:0; @extend .control-list;}  
       	   .timebar-wrapper {
       	     //size
       	     height:30px;

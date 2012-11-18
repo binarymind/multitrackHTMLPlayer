@@ -167,7 +167,7 @@ generateHtml = function(container) {
 	var containerID = container.attr('id');	
 	
 	//insert main control
-	container.prepend('<h1>'+container.attr('name')+'</h1><div class="main-control"><ul class="control"><li class="play"><a href="javascript://">play</a></li> <li class="pause"><a href="javascript://">pause</a></li> <li class="stop"><a href="javascript://">stop</a></li></ul><div class="timebar-wrapper"><div class="timebar"></div></div></div>');
+	container.prepend('<h1>'+container.attr('name')+'</h1><div class="main-control"><ul class="control"><li class="play"><a href="javascript://">play</a></li> <li class="pause"><a href="javascript://">pause</a></li> <li class="stop"><a href="javascript://">stop</a></li> <li class="repeat"><a href="javascript://">repeat</a></li></ul><div class="timebar-wrapper"><div class="timebar"></div></div></div>');
 	var audioTags = container.find("audio");
 	audioTags.detach();
 	
@@ -193,6 +193,7 @@ initPlayer = function(containerID) {
 	 	playButton : container.find(".main-control .play"),
 		pauseButton : container.find(".main-control .pause"),
 		stopButton : container.find(".main-control .stop"),
+		repeatButton : container.find(".main-control .repeat"),
 		timebar : container.find(".main-control .timebar"),
 		timebarWrapper : container.find(".main-control .timebar-wrapper"),
 		canvas : container.find("canvas"),
@@ -202,11 +203,13 @@ initPlayer = function(containerID) {
 		playing:false, 
 		canvasCleared:false,
 		fft : Array(),
-		canvasVisible:false
+		canvasVisible:false,
+		repeat : false
 	};
 	players[containerID].playButton.attr('container', containerID);
 	players[containerID].pauseButton.attr('container', containerID);
 	players[containerID].stopButton.attr('container', containerID);
+	players[containerID].repeatButton.attr('container', containerID);
 	players[containerID].timebar.attr('container', containerID);
 	players[containerID].timebarWrapper.attr('container', containerID);
 	players[containerID].canvas.attr('container', containerID);
@@ -237,7 +240,6 @@ initPlayer = function(containerID) {
 	});
 	players[containerID].trackCount=players[containerID].tracks.length;
 	players[containerID].firstTrack = players[containerID].tracks[0];
-	
 	container.on("ready", function(){
 		$(this).addClass("ready");
 	});
@@ -335,6 +337,14 @@ initPlayer = function(containerID) {
 		players[containerID].playing=true;
 	});
 	
+	//REPEAT
+	//----------------------------------------------
+	container.on('click', '.main-control .repeat', function() {
+		var containerID = $(this).attr('container');
+		$(this).toggleClass("active");
+		players[containerID].repeat = $(this).hasClass("active");
+	});
+
 	//PAUSE
 	//----------------------------------------------
 	container.on('click', '.main-control .play.active + .pause:not(.active)', function() {
@@ -415,6 +425,8 @@ initPlayer = function(containerID) {
 		//stop player if we terminate the track
 		var containerID = $(this).attr('container');	
 		players[containerID].stopButton.click();
+		if(players[containerID].repeat)
+			players[containerID].playButton.click();
 	});
 };
 var constID = 0;

@@ -41,11 +41,9 @@ a img { border: none; }
 .scroll { overflow: auto; scroll: auto; }
 
 .inline-block-list, .control-list, .audio-container ul.tracks > li ul, .audio-container .main-control ul { margin: 0; padding: 0; border: 0; overflow: hidden; *zoom: 1; }
-.inline-block-list li, .control-list li, .audio-container ul.tracks > li ul li, .audio-container .main-control ul li { list-style-image: none; list-style-type: none; margin-left: 0; display: -moz-inline-box; -moz-box-orient: vertical; display: inline-block; vertical-align: middle; *vertical-align: auto; white-space: nowrap; }
-.inline-block-list li, .control-list li, .audio-container ul.tracks > li ul li, .audio-container .main-control ul li { *display: inline; }
+.inline-block-list li, .control-list li, .audio-container ul.tracks > li ul li, .audio-container .main-control ul li { list-style-image: none; list-style-type: none; margin-left: 0; display: -moz-inline-stack; display: inline-block; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; white-space: nowrap; }
 
-.inline-block-list-item, .control-list > li, .audio-container ul.tracks > li ul > li, .audio-container .main-control ul > li, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a { list-style-image: none; list-style-type: none; margin-left: 0; display: -moz-inline-box; -moz-box-orient: vertical; display: inline-block; vertical-align: middle; *vertical-align: auto; white-space: nowrap; }
-.inline-block-list-item, .control-list > li, .audio-container ul.tracks > li ul > li, .audio-container .main-control ul > li, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a { *display: inline; }
+.inline-block-list-item, .control-list > li, .audio-container ul.tracks > li ul > li, .audio-container .main-control ul > li, .control-list > li > a, .audio-container ul.tracks > li ul > li > a, .audio-container .main-control ul > li > a { list-style-image: none; list-style-type: none; margin-left: 0; display: -moz-inline-stack; display: inline-block; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; white-space: nowrap; }
 
 /*******************************/
 /************ Texts ************/
@@ -72,7 +70,7 @@ a img { border: none; }
 /*******************************/
 .no-background { background: none !important; }
 
-body.high-graphics .css-transition-all, body.high-graphics .bkg-link, body.high-graphics .bkg-list li a, .bkg-list li body.high-graphics a, body.high-graphics .button, body.high-graphics .control-list > li > a, body.high-graphics .audio-container ul.tracks > li ul > li > a, .audio-container ul.tracks > li body.high-graphics ul > li > a, body.high-graphics .audio-container .main-control ul > li > a, .audio-container .main-control body.high-graphics ul > li > a, body.high-graphics .audio-container .tracks, .audio-container body.high-graphics .tracks, body.high-graphics .audio-container .main-control, .audio-container body.high-graphics .main-control, body.high-graphics .audio-container canvas, .audio-container body.high-graphics canvas { -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; }
+body.high-graphics .css-transition-all, body.high-graphics .bkg-link, body.high-graphics .bkg-list li a, .bkg-list li body.high-graphics a, body.high-graphics .button, body.high-graphics .control-list > li > a, body.high-graphics .audio-container ul.tracks > li ul > li > a, .audio-container ul.tracks > li body.high-graphics ul > li > a, body.high-graphics .audio-container .main-control ul > li > a, .audio-container .main-control body.high-graphics ul > li > a, body.high-graphics .audio-container .tracks, .audio-container body.high-graphics .tracks, body.high-graphics .audio-container .main-control, .audio-container body.high-graphics .main-control, body.high-graphics .audio-container canvas, .audio-container body.high-graphics canvas { -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; }
 
 .bkg-gradient { background: url("../i/bkgGradient.png") repeat-x scroll 0 0 transparent; }
 
@@ -106,6 +104,8 @@ body.high-graphics .bkg-link-hover, body.high-graphics .bkg-link:hover, body.hig
 .control-list > li.pause.active a, .audio-container ul.tracks > li ul > li.pause.active a, .audio-container .main-control ul > li.pause.active a { background-position: -28px -28px; }
 .control-list > li.stop a, .audio-container ul.tracks > li ul > li.stop a, .audio-container .main-control ul > li.stop a { background-position: -58px 2px; }
 .control-list > li.stop.active a, .audio-container ul.tracks > li ul > li.stop.active a, .audio-container .main-control ul > li.stop.active a { background-position: -58px -28px; }
+.control-list > li.repeat a, .audio-container ul.tracks > li ul > li.repeat a, .audio-container .main-control ul > li.repeat a { background-position: -240px 2px; }
+.control-list > li.repeat.active a, .audio-container ul.tracks > li ul > li.repeat.active a, .audio-container .main-control ul > li.repeat.active a { background-position: -240px -28px; }
 
 h1 { font-size: 1.7em; line-height: 1.7em; padding-left: 5px; }
 
@@ -139,8 +139,8 @@ body.high-graphics .audio-container ul.tracks > li.playing { -webkit-box-shadow:
 .audio-container ul.tracks > li .color { display: block; width: 20px; height: 100%; position: absolute; top: 0; right: 0; }
 .audio-container audio { height: 0; overflow: hidden; line-height: 0; width: 0; display: none !important; }
 .audio-container .track-name { padding-left: 5px; color: #4b4b4b; padding-top: 3px; }
-.audio-container .main-control { padding: 0 0 8px 110px; }
-.audio-container .main-control ul { width: 110px; left: 0; top: 0; }
+.audio-container .main-control { padding: 0 0 8px 145px; }
+.audio-container .main-control ul { width: 145px; left: 0; top: 0; }
 .audio-container .main-control .timebar-wrapper { height: 30px; position: relative; background: #DDD; border: 1px solid #CCC; }
 .audio-container .main-control .timebar-wrapper .timebar { height: 30px; max-width: 100%; min-width: 0; width: 1px; left: 0; top: 0; background: #444; border-right: 1px solid #EEE; }
 .audio-container.canvas-opened canvas { height: 300px; }
