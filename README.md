@@ -15,6 +15,15 @@ in the index.html, replace all the blocs by the ones you want
 * each bloc must have the class `audio-container` and a `name` attribute like shown above.
 * audio track must have a `name` attribute and an `url` attribute (not src !) 
 * all the audio tracks must be in the same domain than your webpage.
+* If you want not to preload audio files, add the preload="none" to you audio-container div, exemple : 
+
+``` html
+<div class='audio-container'  name='Example with existing sources' preload="none">
+  <audio name="fisrt source" url="./data/sample.ogg"></audio>
+  <audio name="second source" url="./data/sample.ogg"></audio>
+  <audio name="third source" url="./data/sample.ogg"></audio>
+</div>
+``` 
 
 And that's all.. This seems more stable Under Firefox. Moreover if you open the page with a modern firefox you will have displayed the FFT of all the tracks beeing played.
 
