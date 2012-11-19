@@ -165,7 +165,10 @@ function get_random_color() {
 
 generateHtml = function(container) {
 	var containerID = container.attr('id');	
-	
+	var preload = container.attr("preload") == "none" ? false : true;
+	var srcAttr = 'url';
+	if(preload) srcAttr = "src";
+
 	//insert main control
 	container.prepend('<h1>'+container.attr('name')+'</h1><div class="main-control"><ul class="control"><li class="play"><a href="javascript://">play</a></li> <li class="pause"><a href="javascript://">pause</a></li> <li class="stop"><a href="javascript://">stop</a></li> <li class="repeat"><a href="javascript://">repeat</a></li></ul><div class="timebar-wrapper"><div class="timebar"></div></div></div>');
 	var audioTags = container.find("audio");
@@ -176,9 +179,12 @@ generateHtml = function(container) {
 	var containerTracks = container.find('.tracks');
 	audioTags.each(function(i){
 		var randomColor = get_random_color();
-		containerTracks.append('<li class="track"><ul class="control"><li class="mute"><a href="javascript://">mute</a></li><li class="solo"><a href="javascript://"><span></span></a></li></ul><span class="status"></span><audio index="'+i+'" container="'+containerID+'" color="'+randomColor+'" preload="auto" src="'+$(this).attr("url")+'"></audio><span class="track-name">'+$(this).attr("name")+'</span>'+($.browser.mozilla ? '<span class="color" style="background-color:'+randomColor+'"></span>':"")+'</li>');
+		containerTracks.append('<li class="track"><ul class="control"><li class="mute"><a href="javascript://">mute</a></li><li class="solo"><a href="javascript://"><span></span></a></li></ul><span class="status"></span><audio index="'+i+'" container="'+containerID+'" color="'+randomColor+'" preload="auto" '+srcAttr+'="'+$(this).attr("url")+'"></audio><span class="track-name">'+$(this).attr("name")+'</span>'+($.browser.mozilla ? '<span class="color" style="background-color:'+randomColor+'"></span>':"")+'</li>');
 	});	
 	container.append('<span class="loader"></span>');
+	if(!preload) {
+		container.append('<a class="loading-link" href="javascript://"></a>').addClass("waiting");
+	}
 	audioTags.remove();
 };
 players = {};
@@ -337,6 +343,14 @@ initPlayer = function(containerID) {
 		players[containerID].playing=true;
 	});
 	
+	//LOAD
+	//----------------------------------------------
+	container.on('click', '.loading-link', function() {
+		var container = $(this).closest(".audio-container");
+		container.removeClass("waiting").find('audio').each(function(){
+			$(this).attr("src", $(this).attr("url"));
+		});
+	});
 	//REPEAT
 	//----------------------------------------------
 	container.on('click', '.main-control .repeat', function() {

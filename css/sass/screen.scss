@@ -110,6 +110,15 @@
           //aesthetic
           @extend .bkg-picto;background-position:-160px -15px; @extend .t-hide;
         }
+        .loading-link {
+          //size
+          display:none;width:47px;height:47px;@extend .css-transition-all;
+          //position
+          position:absolute;right:50%;margin-right:-18px;top:50%;margin-top:-18px;
+          //aesthetic
+          @extend .bkg-picto;background-color:rgba(255,255,255,0.6);background-position:-155px -10px; @extend .t-hide;@include border-radius(5px);@include box-shadow(0 0 10px rgba(0,0,0,0.2));
+          &:hover {background-color:rgba(255,255,255,0.9);@include box-shadow(0 0 10px rgba(0,0,0,0.4));}
+        }
         .status {
           //size
           display:none;width:16px;height:29px;
@@ -118,9 +127,13 @@
           //aesthetic
           @extend .bkg-picto;background-position:-208px -14px; @extend .t-hide; 
         }
-        &:not(.ready):not(.error) {
+        &:not(.ready):not(.error):not(.waiting) {
           .tracks, .main-control, .canvas-toggle {opacity:0.2;}
           .loader {display:block}
+        }
+        &.waiting {
+          .tracks, .main-control, .canvas-toggle {opacity:0.2;}
+          .loading-link {display:block;}
         }
         &.error {
           .tracks {opacity:1}
