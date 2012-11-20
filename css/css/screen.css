@@ -104,8 +104,8 @@ body.high-graphics .bkg-link-hover, body.high-graphics .bkg-link:hover, body.hig
 .control-list > li.pause.active a, .audio-container ul.tracks > li ul > li.pause.active a, .audio-container .main-control ul > li.pause.active a { background-position: -28px -28px; }
 .control-list > li.stop a, .audio-container ul.tracks > li ul > li.stop a, .audio-container .main-control ul > li.stop a { background-position: -58px 2px; }
 .control-list > li.stop.active a, .audio-container ul.tracks > li ul > li.stop.active a, .audio-container .main-control ul > li.stop.active a { background-position: -58px -28px; }
-.control-list > li.repeat a, .audio-container ul.tracks > li ul > li.repeat a, .audio-container .main-control ul > li.repeat a { background-position: -240px 2px; }
-.control-list > li.repeat.active a, .audio-container ul.tracks > li ul > li.repeat.active a, .audio-container .main-control ul > li.repeat.active a { background-position: -240px -28px; }
+.control-list > li.repeat a, .audio-container ul.tracks > li ul > li.repeat a, .audio-container .main-control ul > li.repeat a { background-position: -240px 0px; }
+.control-list > li.repeat.active a, .audio-container ul.tracks > li ul > li.repeat.active a, .audio-container .main-control ul > li.repeat.active a { background-position: -240px -30px; }
 
 h1 { font-size: 1.7em; line-height: 1.7em; padding-left: 5px; }
 
@@ -113,7 +113,7 @@ h2 { font-size: 1.3em; line-height: 1.3em; padding-left: 5px; }
 
 .audio-container { padding: 5px; position: relative; background: #EEE; font-family: Helvetica, Arial, Verdana; }
 .audio-container .loader { display: none; width: 37px; height: 37px; position: absolute; right: 50%; margin-right: -18px; top: 50%; margin-top: -18px; background-position: -160px -15px; }
-.audio-container .loading-link { display: none; width: 47px; height: 47px; position: absolute; right: 50%; margin-right: -18px; top: 50%; margin-top: -18px; background-color: rgba(255, 255, 255, 0.6); background-position: -155px -10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+.audio-container .loading-link { display: none; width: 47px; height: 47px; position: absolute; right: 50%; margin-right: -18px; top: 50%; margin-top: -18px; background-color: rgba(255, 255, 255, 0.6); background-position: -270px -6px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
 .audio-container .loading-link:hover { background-color: rgba(255, 255, 255, 0.9); -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
 .audio-container .status { display: none; width: 16px; height: 29px; float: left; background-position: -208px -14px; }
 .audio-container:not(.ready):not(.error):not(.waiting) .tracks, .audio-container:not(.ready):not(.error):not(.waiting) .main-control, .audio-container:not(.ready):not(.error):not(.waiting) .canvas-toggle { opacity: 0.2; }

@@ -70,7 +70,7 @@
             //size
             overflow:hidden;@extend .display-block;width:30px;height:30px;
             //aesthetic
-            @extend .bkg-picto;@extend .t-hide;background-position:-130px 0 ;
+            @extend .bkg-picto;@extend .t-hide;background-position:-130px 0 ; 
           }
         }
         &.solo.active a  span {background-position:-130px -30px ;}
@@ -84,8 +84,8 @@
         &.stop a {background-position:-58px 2px}
         &.stop.active a {background-position:-58px -28px}  		
 
-        &.repeat a {background-position:-240px 2px}
-        &.repeat.active a {background-position:-240px -28px}     
+        &.repeat a {background-position:-240px 0px}
+        &.repeat.active a {background-position:-240px -30px}     
   		}
 		    
 		// -------------------------------------------------------------------
@@ -116,7 +116,7 @@
           //position
           position:absolute;right:50%;margin-right:-18px;top:50%;margin-top:-18px;
           //aesthetic
-          @extend .bkg-picto;background-color:rgba(255,255,255,0.6);background-position:-155px -10px; @extend .t-hide;@include border-radius(5px);@include box-shadow(0 0 10px rgba(0,0,0,0.2));
+          @extend .bkg-picto;background-color:rgba(255,255,255,0.6);background-position:-270px -6px; @extend .t-hide;@include border-radius(5px);@include box-shadow(0 0 10px rgba(0,0,0,0.2));
           &:hover {background-color:rgba(255,255,255,0.9);@include box-shadow(0 0 10px rgba(0,0,0,0.4));}
         }
         .status {
