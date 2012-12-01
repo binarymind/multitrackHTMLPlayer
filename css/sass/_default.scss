@@ -7,7 +7,7 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/text-shadow";
 @import "compass/typography/lists/bullets";
-
+li {list-style-type:none;}
 //***************************************/
 //*********** Clear & Clearfix **********/
 //***************************************/
@@ -57,7 +57,34 @@
 	
 	.inline-block-list {@include inline-block-list;}
 	.inline-block-list-item {@include inline-block-list-item;}
-	
+
+// -------------------------------------------------------------------
+// ANIMATIONS
+// -------------------------------------------------------------------
+@mixin animate($name: fadeIn, $duration: 1s, $delay: .2s, $function: ease, $mode: both) {
+  @include experimental(animation, $name $duration $delay $function $mode);
+}
+
+//OPEN THE EXPAND ANIMATION
+@-webkit-keyframes open-sub-expand {
+	0%{opacity:0;max-height:0}
+	100%{opacity:1;max-height:3000px;display:block}
+}
+@-moz-keyframes open-sub-expand {
+  from{opacity:0;max-height:0;display:none}
+  to{opacity:1;max-height:3000px;display:block}
+}
+
+//CLOSE THE EXPAND ANIMATION
+@-webkit-keyframes close-sub-expand {  
+  0%{opacity:1;max-height:3000px;display:block}
+  100%{opacity:0;max-height:0;display:none}
+}  
+@-moz-keyframes close-sub-expand {  
+  from{opacity:1;max-height:3000px;display:block}
+  to{opacity:0;max-height:0;display:none}
+}  
+
 /*******************************/
 /************ Texts ************/
 /*******************************/

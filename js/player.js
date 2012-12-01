@@ -163,12 +163,37 @@ function get_random_color() {
     return color;
 }
 
+generateHierarchy = function(container) {
+	var myLis = container.find('li[name]');
+	myLis.each(function(){
+		var that = $(this);
+		that.wrap('<ul class="expandable closed"></ul>');
+		that.parent().wrap('<li></li>');
+		that.before('<li><a href="javascript://">'+that.attr('name')+'<span class="icon-expand"></span><span class="icon-reduce"></span></a></li>');
+	});
+
+	//MUTE not active
+	//----------------------------------------------
+	container.on('click', '.expandable > :first-child a', function() {
+		$(this).closest(".expandable").removeClass("closed").toggleClass("opened");
+		return false;
+	});
+};
+
 generateHtml = function(container) {
 	var containerID = container.attr('id');	
 	var preload = container.attr("preload") == "none" ? false : true;
 	var srcAttr = 'url';
 	if(preload) srcAttr = "src";
 
+	//specify containercount to parent
+	var nbContainer = container.parent().attr("containers");
+	if(nbContainer) {
+		nbContainer = parseInt(nbContainer)+1;
+		container.parent().attr("containers", nbContainer);
+	} else {
+		container.parent().attr("containers", 1);
+	}
 	//insert main control
 	container.prepend('<h1>'+container.attr('name')+'</h1><div class="main-control"><ul class="control"><li class="play"><a href="javascript://">play</a></li> <li class="pause"><a href="javascript://">pause</a></li> <li class="stop"><a href="javascript://">stop</a></li> <li class="repeat"><a href="javascript://">repeat</a></li></ul><div class="timebar-wrapper"><div class="timebar"></div></div></div>');
 	var audioTags = container.find("audio");
@@ -253,6 +278,7 @@ initPlayer = function(containerID) {
 		$(this).addClass("error");
 		$(this).find('.track:nth-child('+i+')').addClass("error");
 	});
+	
 	//MUTE not active
 	//----------------------------------------------
 	container.on('click', '.tracks .track:not(.locked):not(.solo) .mute:not(.active) > a', function() {
@@ -446,6 +472,7 @@ initPlayer = function(containerID) {
 var constID = 0;
 $(document).ready(function () {
 	$("body").addClass("high-graphics");
+	generateHierarchy($('body'));
 	//loop through all audio container 
 	$(".audio-container").each(function(){
 		var myId = $(this).attr('id'); 
