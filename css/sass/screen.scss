@@ -228,10 +228,11 @@
         canvas {height:300px;}
       }  
   	}	
-    [containers="2"] > .audio-container {width:50%;float:left;box-sizing:border-box;}
-    [containers="3"] > .audio-container {width:33%;float:left;box-sizing:border-box;}
-    [containers="4"] > .audio-container {width:25%;float:left;box-sizing:border-box;}
-    [containers="5"] > .audio-container {width:20%;float:left;box-sizing:border-box;}
+    [containers="2"] > .audio-container,[containers="3"] > .audio-container, [containers="4"] > .audio-container ,[containers="5"] > .audio-container { border-width:1px 0;float:left;margin:0; -moz-box-sizing: border-box; box-sizing: border-box;}
+    [containers="2"] > .audio-container {width:50%;}
+    [containers="3"] > .audio-container {width:33%;}
+    [containers="4"] > .audio-container {width:25%;}
+    [containers="5"] > .audio-container {width:20%;}
       		
 
 //LOADING ANIMATION
